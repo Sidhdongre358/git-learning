@@ -17,10 +17,12 @@ public class UserService {
     );
 
     public List<User> getUsers() {
+        System.out.println("Fetching all users: " + users.size());
         return users;
     }
 
     public Optional<User> getUserById(Long id) {
+        System.out.println("Fetching user by ID: " + id);
         return users.stream().filter(u -> u.getId().equals(id)).findFirst();
     }
 }
