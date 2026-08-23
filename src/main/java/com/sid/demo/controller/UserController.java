@@ -13,25 +13,26 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
 
-    private final List<User> users = List.of(
-            new User(1L, "Alice Johnson", "alice@example.com", "Admin"),
-            new User(2L, "Bob Smith", "bob@example.com", "User"),
-            new User(3L, "Charlie Brown", "charlie@example.com", "Manager"),
-            new User(4L, "Diana Prince", "diana@example.com", "User"),
-            new User(5L, "Ethan Hunt", "ethan@example.com", "Admin"),
-            new User(6L, "Fiona Gallagher", "fiona@example.com", "User")
-    );
+    private final com.sid.demo.service.UserService userService;
+
+    // default constructor for tests and simple instantiation
+    public UserController() {
+        this.userService = new com.sid.demo.service.UserService();
+    }
+
+    // constructor for DI
+    public UserController(com.sid.demo.service.UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/users")
     public List<User> getUsers() {
-        return users;
+        return userService.getUsers();
     }
 
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        return users.stream()
-                .filter(user -> user.getId().equals(id))
-                .findFirst()
+        return userService.getUserById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
