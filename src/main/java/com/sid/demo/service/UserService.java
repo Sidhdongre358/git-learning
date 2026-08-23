@@ -1,9 +1,9 @@
 package com.sid.demo.service;
 
-import com.sid.demo.model.User;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.sid.demo.model.User;
 
 public class UserService {
 
@@ -17,10 +17,12 @@ public class UserService {
     );
 
     public List<User> getUsers() {
+        System.out.println("Fetching all users: " + users);
         return users;
     }
 
     public Optional<User> getUserById(Long id) {
+        System.out.println("Fetching user with ID: " + id);
         return users.stream().filter(u -> u.getId().equals(id)).findFirst();
     }
 }
