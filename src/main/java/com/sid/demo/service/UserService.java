@@ -22,7 +22,7 @@ public class UserService {
     }
 
     public Optional<User> getUserById(Long id) {
-        System.out.println("Fetching user by ID: " + id);
+        System.out.println("Fetching user with ID: " + id);
         return users.stream().filter(u -> u.getId().equals(id)).findFirst();
     }
 }
