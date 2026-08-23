@@ -66,6 +66,7 @@ public class ProductService {
             throw new IllegalArgumentException("Invalid product");
         }
 
+        System.out.println("Creating product: " + product.getName() + ", Category: " + product.getCategory() + ", Price: " + product.getPrice() + ", In Stock: " + product.isInStock());
         Product createdProduct = new Product(
                 productSequence.incrementAndGet(),
                 product.getName(),
