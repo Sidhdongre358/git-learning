@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sid.demo.model.Product;
-import com.sid.demo.services.ProductService;
+import com.sid.demo.service.ProductService;
 
 @RestController
 @RequestMapping("/api")

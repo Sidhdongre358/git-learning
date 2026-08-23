@@ -1,4 +1,4 @@
-package com.sid.demo.services;
+package com.sid.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
